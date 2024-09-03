@@ -59,7 +59,7 @@ def ayurbot():
             if st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
                 logic(prompt)
-                st.session_state.count += 1:
+                st.session_state.count += 1
             else:
                 bot_response = result()
                 reset_state()
