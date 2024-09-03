@@ -3,18 +3,20 @@ import brain
 import random
 
 home = False
-count=0
+
+if "count" not in st.session_state:
+    st.session_state.count=0
+    st.session_state.a = 0
+    st.session_state.b = 0
+    st.session_state.c = 0
+    st.session_state.messages = []
+    st.session_state.questions = brain.questions
 
 def ayurbot():
-    global count
-    questions =False
-    a=0
-    b=0
-    c=0
     page_bg = """
     <style>
     [data-testid="stAppViewContainer"] {
-    background-image: ;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
     background-size: cover;
     }        
     </style>
@@ -25,20 +27,20 @@ def ayurbot():
     )
     st.markdown(
         """
-        <h2 style="text-align: center; color: #D3D3D3; font-family: 'Times New Roman';">AYURBOT</h1>
+        <h1 style="text-align: center; color: white; font-family: 'Times New Roman', Times, serif;">AYURBOT</h1>
         """,
         unsafe_allow_html=True
     )
     st.subheader('', divider='rainbow')
     st.markdown(
         """
-        <h5 style="color: #D3D3D3,font-weight: normal;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
+        <h4 style="color: black;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
         """,
         unsafe_allow_html=True
     )
     
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
+    #if "messages" not in st.session_state:
+    #    st.session_state.messages = []
 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
@@ -54,47 +56,48 @@ def ayurbot():
             bot_response=""
             prompt = prompt.lower()
 
-            if count==0:
-               bot_response = random.choice(brain.questions)
-            if count ==1:
-               bot_response = brain.questions[1]
-            if prompt in brain.c_hi:
-                bot_response = "Please answer the following questions honestly and accurately."    
-            if prompt in brain.c_yes:
-                questions = True
-            count+=1
+            if st.session_state.count < len(st.session_state.questions):
+                bot_response = st.session_state.questions[st.session_state.count]
+                logic(prompt)
+                st.session_state.count += 1:
+            else:
+                bot_response = result()
+                reset_state()
 
-            logic(prompt,a,b,c)
-        
-            message_placeholder.markdown(bot_response)
+        message_placeholder.markdown(bot_response)
         st.session_state.messages.append({"role": "assistant","content": bot_response})
-        
 
-def result(a,b,c):
-    if a>b and a>c:
-        bot_response = "Congratulations your prakriti is VATA"
-    if b>c and b>a:
-        bot_response = "Congratulations your prakriti is PiTTA"
-    if c>a and c>b:
-        bot_response = "Congratulations your prakriti is KAPHA"
-
-def logic(user,x,y,z):
-    if user in brain.ans_1:
-        x+=1
-    elif user in brain.ans_2:
-        y+=2
+def result():
+    if st.session_state.a > st.session_state.b and st.session_state.a > st.session_state.c:
+        return "Congratulations, your Prakriti is VATA"
+    elif st.session_state.b > st.session_state.c and st.session_state.b > st.session_state.a:
+        return "Congratulations, your Prakriti is PITTA"
     else:
-        z+=3
-    return user,x,y,z
+        return "Congratulations, your Prakriti is KAPHA"
+
+def logic(user_input):
+    if user_input in brain.ans_1:
+        st.session_state.a += 1
+    elif user_input in brain.ans_2:
+        st.session_state.b += 1
+    elif user_input in brain.ans_3:
+        st.session_state.c += 1
+
+
+def reset_state():
+    st.session_state.count = 0
+    st.session_state.a = 0
+    st.session_state.b = 0
+    st.session_state.c = 0
+    st.session_state.messages = []
+
 def main():
     page_bg = """
     <style>
     [data-testid="stAppViewContainer"] {
-    background-image: url(https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?cs=srgb&dl=pexels-no-name-66997.jpg&fm=jpg);
-    height = 50%;
-    background-position: center;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
     background-size: cover;
-    }
+    }        
     </style>
     """
     st.markdown(
@@ -103,7 +106,7 @@ def main():
     )
     st.markdown(
         """
-        <h2 style="text-align: center; color: black; font-family: 'Times New Roman', sans-serif;">PRAKRITI</h1>
+        <h1 style="text-align: center; color: black; font-family: 'Times New Roman', Times, serif;">PRAKRITI</h1>
         """,
         unsafe_allow_html=True
     )
