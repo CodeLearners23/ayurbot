@@ -32,15 +32,12 @@ def ayurbot():
         unsafe_allow_html=True
     )
     st.subheader('', divider='rainbow')
-    st.markdown(
-        """
-         <h5 style="color: #D3D3D3,font-weight: normal;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
-        """,
-        unsafe_allow_html=True
-    )
-    
-    #if "messages" not in st.session_state:
-    #    st.session_state.messages = []
+    #st.markdown(
+    #    """
+    #     <h5 style="color: #D3D3D3,font-weight: normal;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
+    #    """,
+    #    unsafe_allow_html=True
+    #)
 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
@@ -57,7 +54,7 @@ def ayurbot():
             prompt = prompt.lower()
 
             if prompt in brain.c_hi:
-                bot_response = "Please answer the following questions honestly and accurately."  
+                bot_response = brain.bot_intro + brain.ques_intro
 
             elif st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
