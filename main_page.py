@@ -54,7 +54,7 @@ def ayurbot():
             prompt = prompt.lower()
 
             if prompt in brain.c_hi:
-                bot_response = brain.bot_intro + "\n" + brain.ques_intro
+                bot_response = brain.bot_intro
 
             elif st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
@@ -69,11 +69,11 @@ def ayurbot():
 
 def result():
     if st.session_state.a > st.session_state.b and st.session_state.a > st.session_state.c:
-        return "Congratulations, your Prakriti is VATA"
+        return brain.vata
     elif st.session_state.b > st.session_state.c and st.session_state.b > st.session_state.a:
-        return "Congratulations, your Prakriti is PITTA"
+        return brain.pitta
     else:
-        return "Congratulations, your Prakriti is KAPHA"
+        return brain.kapha
 
 def logic(user_input):
     if user_input in brain.ans_1:
