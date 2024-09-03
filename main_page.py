@@ -59,7 +59,7 @@ def ayurbot():
             if prompt in brain.c_hi:
                 bot_response = "Please answer the following questions honestly and accurately."  
 
-            if st.session_state.count < len(st.session_state.questions):
+            elif st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
                 logic(prompt)
                 st.session_state.count += 1
