@@ -16,7 +16,7 @@ def ayurbot():
     page_bg = """
     <style>
     [data-testid="stAppViewContainer"] {
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-image:     ;
     background-size: cover;
     }        
     </style>
@@ -27,14 +27,14 @@ def ayurbot():
     )
     st.markdown(
         """
-        <h1 style="text-align: center; color: white; font-family: 'Times New Roman', Times, serif;">AYURBOT</h1>
+        <h2 style="text-align: center; color: #D3D3D3; font-family: 'Times New Roman';">AYURBOT</h1>
         """,
         unsafe_allow_html=True
     )
     st.subheader('', divider='rainbow')
     st.markdown(
         """
-        <h4 style="color: black;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
+         <h5 style="color: #D3D3D3,font-weight: normal;">Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!</h5>
         """,
         unsafe_allow_html=True
     )
@@ -55,6 +55,9 @@ def ayurbot():
             message_placeholder = st.empty()
             bot_response=""
             prompt = prompt.lower()
+
+            if prompt in brain.c_hi:
+                bot_response = "Please answer the following questions honestly and accurately."  
 
             if st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
@@ -95,7 +98,9 @@ def main():
     page_bg = """
     <style>
     [data-testid="stAppViewContainer"] {
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-image: url(https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?cs=srgb&dl=pexels-no-name-66997.jpg&fm=jpg);
+    height = 50%;
+    background-position: center;
     background-size: cover;
     }        
     </style>
