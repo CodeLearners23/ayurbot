@@ -4,7 +4,8 @@ c_no=("no","nope","nah","never")
 c_yes = ("yup","done", "yeah", "sure", "ok", "okay", "roger", "you bet", "right", "definitely", "of course", "totally", "i agree", "absolutely", "sure thing", "no problem", "cool", "for sure", "you got it", "no doubt", "all right", "certainly", "affirmative", "indeed", "absolutely", "i concur", "most assuredly", "without a doubt", "that is correct")
 
 prakriti = "Prakriti is a term used in traditional Indian philosophy, particularly in Ayurveda, to describe the inherent constitution or nature of an individual. In Ayurveda, it is believed that every person has a unique combination of three fundamental energies or doshas, known as Vata, Pitta, and Kapha, which make up their prakriti."
-bot_intro = "Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!"
+bot_intro = '''Hi there! I am Chatbot specific to determine the Prakriti of an individual. So now lets determine your Prakriti!
+               Answer these few questions as accurate as possible.'''
 ques_intro = "Answer these few questions as accurate as possible."
 questions = (
         "How would you describe your body frame? (Skinny, medium, or perfect) ",
@@ -19,3 +20,15 @@ questions = (
 ans_1 = ("skinny", "cold", "yes","variable","anxious","morning")
 ans_2 = ("medium","normal","no","strong","angry","neither")
 ans_3 = ("perfect","warm","steady","calm","night")
+vata = '''Congratulations, your Prakriti (Phenotype) is VATA.
+        Here are few suggestions for you to stay healthy:
+        Diet - Eat warm, nourishing, and grounding foods like cooked vegetables, whole grains, and soups. Avoid cold, dry, and raw foods.
+        Lifestyle - Establish a regular daily routine with consistent sleep and meal times to bring stability and calmness.'''
+pitta = '''Congratulations, your Prakriti (Phenotype) is PITTA.
+        Here are few suggestions for you to stay healthy:
+        Diet - Consume cooling and refreshing foods such as fresh fruits, vegetables, and salads. Avoid spicy, oily, and overly hot foods.
+        Lifestyle - Practice stress-relieving activities like yoga or meditation, and avoid overexertion and excessive heat.'''
+kapha = '''Congratulations, your Prakriti (Phenotype) is KAPHA.
+        Here are few suggestions for you to stay healthy:
+        Diet: Opt for light, warm, and dry foods such as steamed vegetables, legumes, and spices. Reduce intake of heavy, oily, and sugary foods.
+        Lifestyle: Engage in regular physical activity to stimulate energy and metabolism, and avoid oversleeping or a sedentary lifestyle.'''
