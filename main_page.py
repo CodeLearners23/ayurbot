@@ -54,7 +54,7 @@ def ayurbot():
             prompt = prompt.lower()
 
             if prompt in brain.c_hi:
-                bot_response = brain.bot_intro + end = " " + brain.ques_intro
+                bot_response = brain.bot_intro + "\n" + brain.ques_intro
 
             elif st.session_state.count < len(st.session_state.questions):
                 bot_response = st.session_state.questions[st.session_state.count]
