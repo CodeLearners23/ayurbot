@@ -16,7 +16,7 @@ def ayurbot():
     page_bg = """
     <style>
     [data-testid="stAppViewContainer"] {
-    # background-image:     ;
+    background-image:     ;
     background-color: #f5f5f5;
     background-size: cover;
     }        
